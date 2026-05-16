@@ -19,4 +19,4 @@ RUN uv sync
 
 
 # Command to run the server using the package entry point
-CMD ["sh", "-c", "uv run mcp-neo4j-data-modeling --transport ${NEO4J_TRANSPORT}"]
+CMD ["sh", "-c", "uv run mcp-neo4j-data-modeling --transport ${NEO4J_TRANSPORT:-${MCP_TRANSPORT:-http}}"]

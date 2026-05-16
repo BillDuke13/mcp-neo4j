@@ -35,7 +35,7 @@ spec:
           name: http
           protocol: TCP
         env:
-        - name: MCP_TRANSPORT
+        - name: NEO4J_TRANSPORT
           valueFrom:
             configMapKeyRef:
               name: mcp-app-config
