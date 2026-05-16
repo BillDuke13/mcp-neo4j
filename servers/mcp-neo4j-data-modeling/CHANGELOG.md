@@ -6,6 +6,11 @@
 
 ### Added
 
+## v0.2.1
+
+### Fixed
+* Fix Docker transport environment handling so `NEO4J_TRANSPORT` starts the data-modeling server and direct Docker HTTP runs bind to published ports by default
+
 ## v0.2.0
 
 ### Added

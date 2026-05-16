@@ -107,7 +107,7 @@ def create_mcp_server() -> FastMCP:
 
     @mcp.tool()
     def load_from_arrows_json(arrows_data_model_dict: dict[str, Any]) -> DataModel:
-        "Load a data model from the Arrows web application format. Returns a data model as a JSON string."
+        "Load a data model from the Arrows web application format. Returns a DataModel object."
         logger.info("Loading a data model from the Arrows web application format.")
         return DataModel.from_arrows(arrows_data_model_dict)
 

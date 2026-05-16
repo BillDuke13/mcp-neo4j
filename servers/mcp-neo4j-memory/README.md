@@ -12,13 +12,13 @@ The MCP server leverages Neo4j's graph database capabilities to create an interc
 
 ### 🕸️ Graph Schema
 
-* `Memory` - A node representing an entity with a name, type, and observations.
-* `Relationship` - A relationship between two entities with a type.
+- `Memory` - A node representing an entity with a name, type, and observations.
+- `Relationship` - A relationship between two entities with a type.
 
 ### 🔍 Usage Example
 
 ```
-Let's add some memories 
+Let's add some memories
 I, Michael, living in Dresden, Germany work at Neo4j which is headquartered in Sweden with my colleagues Andreas (Cambridge, UK) and Oskar (Gothenburg, Sweden)
 I work in Product Management, Oskar in Engineering and Andreas in Developer Relations.
 ```
@@ -36,71 +36,75 @@ Results in Claude calling the create_entities and create_relations tools.
 The server offers these core tools:
 
 #### 🔎 Query Tools
+
 - `read_graph`
-   - Read the entire knowledge graph
-   - No input required
-   - Returns: Complete graph with entities and relations
+  - Read the entire knowledge graph
+  - No input required
+  - Returns: Complete graph with entities and relations
 
-- `search_nodes`
-   - Search for nodes based on a query
-   - Input:
-     - `query` (string): Search query matching names, types, observations
-   - Returns: Matching subgraph
+- `search_memories`
+  - Search for nodes based on a query
+  - Input:
+    - `query` (string): Search query matching names, types, observations
+  - Returns: Matching subgraph
 
-- `find_nodes`
-   - Find specific nodes by name
-   - Input:
-     - `names` (array of strings): Entity names to retrieve
-   - Returns: Subgraph with specified nodes
+- `find_memories_by_name`
+  - Find specific nodes by name
+  - Input:
+    - `names` (array of strings): Entity names to retrieve
+  - Returns: Subgraph with specified nodes
 
 #### ♟️ Entity Management Tools
-- `create_entities`
-   - Create multiple new entities in the knowledge graph
-   - Input:
-     - `entities`: Array of objects with:
-       - `name` (string): Name of the entity
-       - `type` (string): Type of the entity  
-       - `observations` (array of strings): Initial observations about the entity
-   - Returns: Created entities
 
-- `delete_entities` 
-   - Delete multiple entities and their associated relations
-   - Input:
-     - `entityNames` (array of strings): Names of entities to delete
-   - Returns: Success confirmation
+- `create_entities`
+  - Create multiple new entities in the knowledge graph
+  - Input:
+    - `entities`: Array of objects with:
+      - `name` (string): Name of the entity
+      - `type` (string): Type of the entity
+      - `observations` (array of strings): Initial observations about the entity
+  - Returns: Created entities
+
+- `delete_entities`
+  - Delete multiple entities and their associated relations
+  - Input:
+    - `entityNames` (array of strings): Names of entities to delete
+  - Returns: Success confirmation
 
 #### 🔗 Relation Management Tools
+
 - `create_relations`
-   - Create multiple new relations between entities
-   - Input:
-     - `relations`: Array of objects with:
-       - `source` (string): Name of source entity
-       - `target` (string): Name of target entity
-       - `relationType` (string): Type of relation
-   - Returns: Created relations
+  - Create multiple new relations between entities
+  - Input:
+    - `relations`: Array of objects with:
+      - `source` (string): Name of source entity
+      - `target` (string): Name of target entity
+      - `relationType` (string): Type of relation
+  - Returns: Created relations
 
 - `delete_relations`
-   - Delete multiple relations from the graph
-   - Input:
-     - `relations`: Array of objects with same schema as create_relations
-   - Returns: Success confirmation
+  - Delete multiple relations from the graph
+  - Input:
+    - `relations`: Array of objects with same schema as create_relations
+  - Returns: Success confirmation
 
 #### 📝 Observation Management Tools
+
 - `add_observations`
-   - Add new observations to existing entities
-   - Input:
-     - `observations`: Array of objects with:
-       - `entityName` (string): Entity to add to
-       - `contents` (array of strings): Observations to add
-   - Returns: Added observation details
+  - Add new observations to existing entities
+  - Input:
+    - `observations`: Array of objects with:
+      - `entityName` (string): Entity to add to
+      - `contents` (array of strings): Observations to add
+  - Returns: Added observation details
 
 - `delete_observations`
-   - Delete specific observations from entities
-   - Input:
-     - `deletions`: Array of objects with:
-       - `entityName` (string): Entity to delete from
-       - `observations` (array of strings): Observations to remove
-   - Returns: Success confirmation
+  - Delete specific observations from entities
+  - Input:
+    - `deletions`: Array of objects with:
+      - `entityName` (string): Entity to delete from
+      - `observations` (array of strings): Observations to remove
+  - Returns: Success confirmation
 
 ## 🔧 Usage with Claude Desktop
 
@@ -174,7 +178,7 @@ mcp-neo4j-memory
 The server supports three transport modes:
 
 - **STDIO** (default): Standard input/output for local tools and Claude Desktop
-- **SSE**: Server-Sent Events for web-based deployments  
+- **SSE**: Server-Sent Events for web-based deployments
 - **HTTP**: Streamable HTTP for modern web deployments and microservices
 
 ### 🐳 Using with Docker
@@ -200,6 +204,7 @@ The server supports three transport modes:
 ### 📦 Prerequisites
 
 1. Install `uv` (Universal Virtualenv):
+
 ```bash
 # Using pip
 pip install uv
@@ -212,6 +217,7 @@ cargo install uv
 ```
 
 2. Clone the repository and set up development environment:
+
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/mcp-neo4j-memory.git
